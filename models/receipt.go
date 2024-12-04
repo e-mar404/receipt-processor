@@ -1,4 +1,4 @@
-package db
+package models
 
 type Item struct {
   Description   string  `json:"shortDescription"`
