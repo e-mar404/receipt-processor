@@ -42,7 +42,7 @@ func CountReceiptPoints (c *gin.Context) {
 
     return
   }
-
+  
   c.JSON(http.StatusOK, gin.H {
     "price": rules.CountPoints(&receipt),
   })

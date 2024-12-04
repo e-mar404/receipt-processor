@@ -1,0 +1,11 @@
+#!/bin/bash
+
+echo "running test"
+
+go test ./test -v -failfast
+
+echo ""
+echo "Building and starting Docker containers..."
+
+docker-compose down
+docker-compose up --build
