@@ -3,11 +3,11 @@ package handlers
 import (
   "net/http"
 	"e-mar404/receipt-processor/db"
-	"e-mar404/receipt-processor/models"
 	"e-mar404/receipt-processor/rules"
+  "e-mar404/receipt-processor/models"
 
-	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
+  "github.com/gin-gonic/gin"
 )
 
 func ProcessReceipt (c *gin.Context) {
