@@ -4,7 +4,7 @@
 
 Only prerequisite to run the docker container is to have docker-compose installed and docker daemon running.
 
-I do have an `air.toml` file that I was using with [air](https://github.com/air-verse/air) for hot reload development, but air does not need to be installed.
+I do have an `air.toml` file that I was using with [air](https://github.com/air-verse/air) for hot reload development, and is already being istalled on the docker container to replicate how I was running it on my machine.
 
 ## Running
 

@@ -2,14 +2,12 @@ FROM golang:1.23
 
 WORKDIR /app
 
+RUN go install github.com/air-verse/air@latest
+
 COPY go.mod go.sum ./
 
-RUN go mod download && go mod verify
-
-COPY . .
-
-RUN go build -v -o ./tmp/main ./cmd/main.go 
+RUN go mod download
 
 EXPOSE 8080
 
-CMD ["./tmp/main"]
+CMD ["air"]
