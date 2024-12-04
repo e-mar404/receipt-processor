@@ -1,4 +1,4 @@
-package handlers
+package db
 
 type Item struct {
   Description   string  `json:"shortDescription"`
