@@ -1,3 +1,3 @@
 #!/bin/sh
 
-go test ./test
+go test ./test -v

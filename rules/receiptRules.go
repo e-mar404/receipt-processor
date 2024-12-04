@@ -1,7 +1,6 @@
 package rules
 
 import (
-	"fmt"
 	"math"
 	"time"
   "strconv"
@@ -10,7 +9,7 @@ import (
   "e-mar404/receipt-processor/models"
 )
 
-func retailerAlphaNumPoints(receipt *models.Receipt) int {
+func RetailerAlphaNumPoints(receipt *models.Receipt) int {
   points := 0
 
   for _, letter := range receipt.Retailer {
@@ -19,12 +18,10 @@ func retailerAlphaNumPoints(receipt *models.Receipt) int {
     }
   }
   
-  fmt.Printf("retail alpha: %v\n", points)
-
   return points
 }
 
-func roundDollarPoints(receipt *models.Receipt) int {
+func RoundDollarPoints(receipt *models.Receipt) int {
 	points := 0
 
 	total, err := strconv.ParseFloat(receipt.Total, 64)
@@ -36,11 +33,10 @@ func roundDollarPoints(receipt *models.Receipt) int {
 		points = 50
 	}
 
-  fmt.Printf("round dollars: %v\n", points)
 	return points
 }
 
-func quarterMultiplePoints(receipt *models.Receipt) int {
+func QuarterMultiplePoints(receipt *models.Receipt) int {
 	points := 0
 
 	total, err := strconv.ParseFloat(receipt.Total, 64)
@@ -52,19 +48,14 @@ func quarterMultiplePoints(receipt *models.Receipt) int {
 		points = 25
 	}
 
-  fmt.Printf("quarter multiple: %v\n", points)
 	return points
 }
 
-func multipleItemsPoints(receipt *models.Receipt) int {
-  points := (len(receipt.Items) / 2) * 5
-
-  fmt.Printf("multiple items: %v\n", points)
-
-  return points
+func MultipleItemsPoints(receipt *models.Receipt) int {
+  return (len(receipt.Items) / 2) * 5
 }
 
-func descriptionLengthPoints(receipt *models.Receipt) int {
+func DescriptionLengthPoints(receipt *models.Receipt) int {
 	points := 0
 
 	for _, item := range receipt.Items {
@@ -80,11 +71,10 @@ func descriptionLengthPoints(receipt *models.Receipt) int {
 		}
 	}
 
-  fmt.Printf("description length: %v\n", points)
 	return points
 }
 
-func oddDayPoints(receipt *models.Receipt) int {
+func OddDayPoints(receipt *models.Receipt) int {
 	points := 0
 
 	date, err := time.Parse("2006-01-02", receipt.PurchaseDate)
@@ -96,16 +86,14 @@ func oddDayPoints(receipt *models.Receipt) int {
 		points = 6
 	}
 
-  fmt.Printf("odd day: %v\n", points)
 	return points
 }
 
-func timeRangePoints(receipt *models.Receipt) int {
+func TimeRangePoints(receipt *models.Receipt) int {
 	points := 0
 
 	timeParsed, err := time.Parse("15:04", receipt.PurchaseTime)
 	if err != nil {
-    fmt.Printf("time range: %v\n", points)
 		return points
 	}
 
@@ -122,13 +110,13 @@ func timeRangePoints(receipt *models.Receipt) int {
 func CountPoints(receipt *models.Receipt) int {
 	points := 0
 
-	points += retailerAlphaNumPoints(receipt)
-	points += roundDollarPoints(receipt)
-	points += quarterMultiplePoints(receipt)
-	points += multipleItemsPoints(receipt)
-	points += descriptionLengthPoints(receipt)
-	points += oddDayPoints(receipt)
-	points += timeRangePoints(receipt)
+	points += RetailerAlphaNumPoints(receipt)
+	points += RoundDollarPoints(receipt)
+	points += QuarterMultiplePoints(receipt)
+	points += MultipleItemsPoints(receipt)
+	points += DescriptionLengthPoints(receipt)
+	points += OddDayPoints(receipt)
+	points += TimeRangePoints(receipt)
 
 	return points
 }
