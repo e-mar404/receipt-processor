@@ -1,10 +1,10 @@
 package handlers
 
 import (
+  "net/http"
 	"e-mar404/receipt-processor/db"
 	"e-mar404/receipt-processor/models"
 	"e-mar404/receipt-processor/rules"
-	"net/http"
 
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"

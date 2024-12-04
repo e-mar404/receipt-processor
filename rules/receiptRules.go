@@ -1,13 +1,13 @@
 package rules
 
 import (
-	"e-mar404/receipt-processor/models"
 	"fmt"
 	"math"
-	"strconv"
-	"strings"
 	"time"
+  "strconv"
 	"unicode"
+  "strings"
+  "e-mar404/receipt-processor/models"
 )
 
 func retailerAlphaNumPoints(receipt *models.Receipt) int {
@@ -100,7 +100,6 @@ func oddDayPoints(receipt *models.Receipt) int {
 	return points
 }
 
-// messed up
 func timeRangePoints(receipt *models.Receipt) int {
 	points := 0
 
