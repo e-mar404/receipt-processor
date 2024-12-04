@@ -38,7 +38,7 @@ docker-compose down
 docker-compose up --build
 ```
 
-*Note* : The application automatically starts on port 8080 and you can access it through localhost ([localhost:8080](http://localhost:8080))
+*Note* : The application automatically starts on port 8080 and you can send the http requests to [localhost:8080](http://localhost:8080)
 
 ### Approach
 
